@@ -13,7 +13,7 @@
 
 1. 导入js文件
 ```html
-
+<script src="./src/lib/domCompatible.js"></script>
 ```
 
 2. 使用
