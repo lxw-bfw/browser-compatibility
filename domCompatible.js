@@ -4,7 +4,7 @@
  * @Author: lxw
  * @Date: 2020-01-17 16:45:37
  * @LastEditors  : lxw
- * @LastEditTime : 2020-01-17 16:52:59
+ * @LastEditTime : 2020-01-17 17:29:59
  */
 
 const $lxw = (function () {
@@ -79,6 +79,19 @@ const $lxw = (function () {
     }
 
 
+     // innerText兼容性写法
+     function getInnerText(eleObj){
+        return (typeof eleObj.textContent === 'string') ? eleObj.textContent : eleObj.innerText
+    }
+    function setInnerText(eleObj,text){
+        if (typeof eleObj.textContent === 'string') {
+            eleObj.textContent  = text
+        } else {
+            eleObj.innerText = text
+        }
+    }
+
+
     // 封装进对象里面，导出对象模块
     const domCompatible = {
         //获取dom元素
@@ -90,6 +103,12 @@ const $lxw = (function () {
         },
         removerEventHadler(eleObj, eventName, handler) {
             removeHandler(eleObj, eventName, handler)
+        },
+        getInnerText(eleObj){
+            getInnerText(eleObj)
+        },
+        setInnerText(eleObj,text){
+            setInnerText(eleObj,text)
         }
     }
 
